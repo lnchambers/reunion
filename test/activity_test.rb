@@ -25,4 +25,15 @@ class ActivityTest < Minitest::Test
     assert_equal 15, activity.participant["Richard"]
     assert_equal ["Richard"], activity.participant.keys
   end
+
+  def test_activity_total_cost
+    activity = Activity.new("hiking")
+
+    activity.add_participant("Richard", 15)
+    activity.add_participant("Rich", 15)
+    activity.add_participant("Richie", 15)
+    activity.add_participant("RIRIRI", 15)
+
+    assert_equal 60, activity.total_cost
+  end
 end
