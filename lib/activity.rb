@@ -3,19 +3,27 @@ require 'pry'
 class Activity
 
   attr_reader :activity,
-              :participant
+              :participants
 
-  def initialize(activity, participant = {})
+  def initialize(activity)
     @activity = activity
-    @participant = participant
+    @participants = {}
   end
 
   def add_participant(name, cost)
-    @participant[name] = cost
+    @participants[name] = cost
   end
 
   def total_cost
-    @participant.values.sum
+    @participants.values.sum
+  end
+
+  def even_cost
+    @participants.values.sum / participants.keys.length
+  end
+
+  def split_cost
+
   end
 
 end
