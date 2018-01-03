@@ -37,7 +37,7 @@ class ActivityTest < Minitest::Test
     assert_equal 60, activity.total_cost
   end
 
-  def test_activity_even_cost
+  def test_activity_average_cost
     activity = Activity.new("hiking")
 
     activity.add_participant("Richard", 15)

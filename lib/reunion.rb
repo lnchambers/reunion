@@ -32,7 +32,7 @@ class Reunion
   end
 
   def split_cost
-
+    
   end
 
 end
