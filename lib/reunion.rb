@@ -54,4 +54,22 @@ class Reunion
       end
     end
   end
+
+  def erb_page
+    renderer = ERB.new(template)
+    html = File.new("winter_park.html")
+    html.puts renderer.result
+  end
+
+  def template
+    "<html><head></head><body>Welcome to the Richard Family Reunion!
+
+    There are currently <%= #{activities.count} %> activities going.
+
+    <%= #{total_participants} %> have joined, spending $<%= #{total_cost} %>!
+
+    Please see Adam if you payed more or less than $<%= #{average_cost} %>.
+
+    Have fun in Winter Park!</body></html>"
+  end
 end

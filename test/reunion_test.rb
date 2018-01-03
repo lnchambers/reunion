@@ -50,7 +50,7 @@ class ReunionTest < Minitest::Test
   def test_reunion_splits_cost
     reunion = Reunion.new("Winter Park")
     activity = Activity.new("hiking")
-    activity2 = Activity.new("hiking")
+    activity2 = Activity.new("biking")
 
     activity.add_participant("Richard", 15)
     activity.add_participant("Rich", 16)
@@ -73,7 +73,7 @@ class ReunionTest < Minitest::Test
   def test_reunion_adds_total_participants
     reunion = Reunion.new("Winter Park")
     activity = Activity.new("hiking")
-    activity2 = Activity.new("hiking")
+    activity2 = Activity.new("biking")
 
     activity.add_participant("Richard", 15)
     activity.add_participant("Rich", 16)
@@ -95,7 +95,7 @@ class ReunionTest < Minitest::Test
   def test_reunion_returns_the_average_cost
     reunion = Reunion.new("Winter Park")
     activity = Activity.new("hiking")
-    activity2 = Activity.new("hiking")
+    activity2 = Activity.new("biking")
 
     activity.add_participant("Richard", 15)
     activity.add_participant("Rich", 16)
