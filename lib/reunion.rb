@@ -27,7 +27,7 @@ class Reunion
     end
   end
 
-  def even_cost
+  def average_cost
     total_cost / total_participants
   end
 

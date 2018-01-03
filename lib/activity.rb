@@ -20,21 +20,21 @@ class Activity
     @participants.values.sum
   end
 
-  def even_cost
+  def average_cost
     @participants.values.sum / participants.keys.length
   end
 
   def split_cost
     @owed = @participants.reduce({}) do |result, participant|
-      if participant[1] > even_cost
-        puts "#{participant[0]} is owed #{participant[1] - even_cost}"
-        result[participant[0]] = (even_cost - participant[1])
-      elsif participant[1] < even_cost
-        puts "#{participant[0]} owes #{even_cost - participant[1]}"
-        result[participant[0]] = (even_cost - participant[1])
+      if participant[1] > average_cost
+        puts "#{participant[0]} is owed #{participant[1] - average_cost}"
+        result[participant[0]] = (average_cost - participant[1])
+      elsif participant[1] < average_cost
+        puts "#{participant[0]} owes #{average_cost - participant[1]}"
+        result[participant[0]] = (average_cost - participant[1])
       else
         puts "#{participant[0]} owes nothing and nothing is owed."
-        result[participant[0]] = (even_cost - participant[1])
+        result[participant[0]] = (average_cost - participant[1])
       end
       result
     end

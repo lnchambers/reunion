@@ -46,7 +46,7 @@ class ActivityTest < Minitest::Test
     activity.add_participant("RIRIRI", 18)
     activity.add_participant("Richardo", 19)
 
-    assert_equal 17, activity.even_cost
+    assert_equal 17, activity.average_cost
   end
 
   def test_activity_splits_cost

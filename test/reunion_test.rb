@@ -68,4 +68,10 @@ class ReunionTest < Minitest::Test
     assert_equal 5, reunion.split_cost["Richard"]
     assert_equal -5, reunion.split_cost["Richardo Montoya"]
   end
+
+  def test_reunion_adds_total_participants
+
+  end
+
+  def test_reunion_returns_the_average_cost
 end
