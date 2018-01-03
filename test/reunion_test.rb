@@ -16,4 +16,12 @@ class ReunionTest < Minitest::Test
 
     assert_equal "Winter Park", reunion.location
   end
+
+  def test_reunion_can_haz_activities
+    reunion = Reunion.new("Winter Park")
+
+    reunion.add_activity(Activity.new("Horseshoeing"))
+
+    assert_equal "Horseshoeing", reunion.activities[0].activity
+  end
 end
