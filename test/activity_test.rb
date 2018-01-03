@@ -37,7 +37,7 @@ class ActivityTest < Minitest::Test
     assert_equal 60, activity.total_cost
   end
 
-  def test_activity_split_cost
+  def test_activity_even_cost
     activity = Activity.new("hiking")
 
     activity.add_participant("Richard", 15)
@@ -47,6 +47,19 @@ class ActivityTest < Minitest::Test
     activity.add_participant("Richardo", 19)
 
     assert_equal 17, activity.even_cost
+  end
+
+  def test_activity_splits_cost
+    activity = Activity.new("hiking")
+
+    activity.add_participant("Richard", 15)
+    activity.add_participant("Rich", 16)
+    activity.add_participant("Richie", 17)
+    activity.add_participant("RIRIRI", 18)
+    activity.add_participant("Richardo", 19)
+
+    assert_equal 2, activity.split_cost["Richard"]
+    assert_equal -2, activity.split_cost["Richardo"]
   end
 
 end
