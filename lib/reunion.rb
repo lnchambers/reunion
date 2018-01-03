@@ -52,7 +52,6 @@ class Reunion
         puts "#{participant[0]} owes nothing and nothing is owed."
         @participants[participant[0]] = (average_cost - participant[1])
       end
-      @participants
     end
   end
 end
