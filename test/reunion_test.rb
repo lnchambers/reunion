@@ -47,5 +47,25 @@ class ReunionTest < Minitest::Test
     assert_equal 120, reunion.total_cost
   end
 
-  
+  def test_reunion_splits_cost
+    reunion = Reunion.new("Winter Park")
+    activity = Activity.new("hiking")
+    activity2 = Activity.new("hiking")
+
+    activity.add_participant("Richard", 15)
+    activity.add_participant("Rich", 16)
+    activity.add_participant("Richie", 17)
+    activity.add_participant("RIRIRI", 18)
+    activity.add_participant("Richardo", 19)
+    activity2.add_participant("Adam", 20)
+    activity2.add_participant("Rich Richie", 21)
+    activity2.add_participant("Richie Rich", 22)
+    activity2.add_participant("RIRIRIRI", 23)
+    activity2.add_participant("Richardo Montoya", 24)
+    reunion.add_activity(activity)
+    reunion.add_activity(activity2)
+
+    assert_equal 5, reunion.split_cost["Richard"]
+    assert_equal -5, reunion.split_cost["Richardo Montoya"]
+  end
 end

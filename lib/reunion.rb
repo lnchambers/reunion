@@ -21,4 +21,18 @@ class Reunion
     end
   end
 
+  def total_participants
+    @activities.reduce(0) do |result, activity|
+      result + activity.participants.count
+    end
+  end
+
+  def even_cost
+    total_cost / total_participants
+  end
+
+  def split_cost
+
+  end
+
 end
