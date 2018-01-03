@@ -10,4 +10,8 @@ class Activity
     @participant = participant
   end
 
+  def add_participant(name, cost)
+    @participant[name] = cost
+  end
+
 end
