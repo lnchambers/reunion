@@ -57,7 +57,7 @@ class Reunion
 
   def erb_page
     renderer = ERB.new(template)
-    html = File.new("winter_park.html")
+    html = File.new("winter_park.html", "w+")
     html.puts renderer.result
   end
 
