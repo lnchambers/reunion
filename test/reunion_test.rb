@@ -62,11 +62,12 @@ class ReunionTest < Minitest::Test
     activity2.add_participant("Richie Rich", 22)
     activity2.add_participant("RIRIRIRI", 23)
     activity2.add_participant("Richardo Montoya", 24)
+    activity2.add_participant("Inigo", 25)
     reunion.add_activity(activity)
     reunion.add_activity(activity2)
 
     assert_equal 5, reunion.split_cost["Richard"]
-    assert_equal -5, reunion.split_cost["Richardo Montoya"]
+    assert_equal -5, reunion.split_cost["Inigo"]
   end
 
   def test_reunion_adds_total_participants

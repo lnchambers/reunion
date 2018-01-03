@@ -4,11 +4,13 @@ require './lib/activity'
 class Reunion
 
   attr_reader :location,
-              :activities
+              :activities,
+              :participants
 
   def initialize(location)
-    @location = location
-    @activities = []
+    @location     = location
+    @activities   = []
+    @participants = {}
   end
 
   def add_activity(activity)
@@ -32,7 +34,25 @@ class Reunion
   end
 
   def split_cost
-    
+    @activities.each do |activity|
+      check_each_participant(activity)
+    end
+    @participants
   end
 
+  def check_each_participant(activity)
+    activity.participants.each do |participant|
+      if participant[1] > average_cost
+        puts "#{participant[0]} is owed #{participant[1] - average_cost}"
+        @participants[participant[0]] = (average_cost - participant[1])
+      elsif participant[1] < average_cost
+        puts "#{participant[0]} owes #{average_cost - participant[1]}"
+        @participants[participant[0]] = (average_cost - participant[1])
+      else
+        puts "#{participant[0]} owes nothing and nothing is owed."
+        @participants[participant[0]] = (average_cost - participant[1])
+      end
+      @participants
+    end
+  end
 end

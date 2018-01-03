@@ -9,7 +9,6 @@ class Activity
   def initialize(activity)
     @activity     = activity
     @participants = {}
-    @owed         = {}
   end
 
   def add_participant(name, cost)
@@ -25,7 +24,7 @@ class Activity
   end
 
   def split_cost
-    @owed = @participants.reduce({}) do |result, participant|
+    @participants.reduce({}) do |result, participant|
       if participant[1] > average_cost
         puts "#{participant[0]} is owed #{participant[1] - average_cost}"
         result[participant[0]] = (average_cost - participant[1])
